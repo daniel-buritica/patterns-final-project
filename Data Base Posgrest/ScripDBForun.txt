@@ -1,0 +1,55 @@
+--create database forum;
+--drop table if exists person; 
+CREATE TABLE "person" (
+  "id_person" SERIAL PRIMARY KEY,
+  "id_card" int,
+  "name" varchar,
+  "last_name" varchar,
+  "email" varchar,
+  "date_birth" date,
+  "countries" varchar,
+  "city" varchar,
+  "profesion" varchar
+);
+
+--drop cascade table if exists "user";
+--drop table "user" cascade ;
+CREATE TABLE "user" (
+  "id_user" SERIAL PRIMARY KEY,
+  "id_person" int unique,
+  "user_name" varchar,
+  "id_rol" int unique ,
+  "password" varchar
+);
+
+--drop table if exists rol;
+CREATE TABLE "rol" (
+  "id_rol" SERIAL PRIMARY KEY,
+  "rol" varchar
+);
+
+--drop table if exists post;
+CREATE TABLE "post" (
+  "id_post" SERIAL PRIMARY KEY,
+  "id_user" int unique ,
+  "body_post" varchar,
+  "category" varchar,
+  "date_post" date
+);
+
+--drop table if exists post_comment;
+CREATE TABLE "post_comment" (
+  "id_post_comment" SERIAL PRIMARY KEY,
+  "id_post" int unique ,
+  "body_post_comment" varchar,
+  "date_post_comment" date,
+  "importance" int
+);
+
+ALTER TABLE "person" ADD FOREIGN KEY ("id_person") REFERENCES "user" ("id_person");
+
+ALTER TABLE "user" ADD FOREIGN KEY ("id_rol") REFERENCES "rol" ("id_rol");
+
+ALTER TABLE "post" ADD FOREIGN KEY ("id_user") REFERENCES "user" ("id_user");
+
+ALTER TABLE "post_comment" ADD FOREIGN KEY ("id_post") REFERENCES "post" ("id_post");
