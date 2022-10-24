@@ -1,7 +1,7 @@
 package co.com.umb.patrones.forum.webapp.domain.usecase;
 
-import co.com.umb.patrones.forum.webapp.domain.model.UserModel;
-import co.com.umb.patrones.forum.webapp.domain.model.gateway.UserModelRepository;
+import co.com.umb.patrones.forum.webapp.model.UserModel;
+import co.com.umb.patrones.forum.webapp.model.gateway.UserModelRepository;
 import lombok.AllArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -10,6 +10,10 @@ import reactor.core.publisher.Mono;
 public class UserUseCase {
     private UserModelRepository userModelRepository;
 
+
+    public Mono<UserModel> getById(int id){
+        return userModelRepository.findById(id);
+    }
     public Flux<UserModel> getAll(){
         return userModelRepository.getAll();
     }
@@ -21,9 +25,6 @@ public class UserUseCase {
     }
     public Mono<UserModel> create(UserModel userModel){
         return userModelRepository.create(userModel);
-    }
-    public Mono<UserModel> findById(UserModel userModel){
-        return userModelRepository.findById(userModel.getIdUser());
     }
 
 }

@@ -1,4 +1,4 @@
-package co.com.umb.patrones.forum.webapp.domain.model;
+package co.com.umb.patrones.forum.webapp.model;
 
 
 import lombok.AllArgsConstructor;

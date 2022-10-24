@@ -1,4 +1,4 @@
-package co.com.umb.patrones.forum.webapp.domain.model;
+package co.com.umb.patrones.forum.webapp.model;
 
 import lombok.*;
 @Data
@@ -17,6 +17,4 @@ public class PersonModel {
     private String countries;
     private String city;
     private String profesion;
-
-
 }

@@ -19,13 +19,14 @@ public class Person {
     @Id
     @Column("id_person")
     private int id;
+    @Column("id_card")
+    private int cardId;
     @Column("name")
     private String name;
     @Column("last_name")
     private String lastname;
     @Column("email")
     private String email;
-    //@DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column("date_birth")
     private String dateBirth;
     @Column("countries")
