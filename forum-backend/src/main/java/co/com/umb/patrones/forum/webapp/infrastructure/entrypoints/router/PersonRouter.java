@@ -19,7 +19,8 @@ public class PersonRouter {
                   .andRoute(GET("/api/v1/person"), handler::findAll )
                   .andRoute(PUT("/api/v1/person"), handler::update)
                   .andRoute(DELETE("/api/v1/person/{id}"), handler::delete)
-                  .andRoute(GET("/api/v1/person/{id}"), handler::findById);
+                  .andRoute(GET("/api/v1/person/{id}"), handler::findById)
+                .andRoute(GET("/api/v1/person/validate/{email}"), handler::exist);
 
     }
 }

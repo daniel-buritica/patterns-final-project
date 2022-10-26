@@ -1,6 +1,6 @@
 package co.com.umb.patrones.forum.webapp.infrastructure.entrypoints.handler;
 
-import co.com.umb.patrones.forum.webapp.model.PersonModel;
+import co.com.umb.patrones.forum.webapp.domain.model.PersonModel;
 import co.com.umb.patrones.forum.webapp.domain.usecase.PersonUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -63,6 +63,13 @@ public class PersonHandle {
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
 
+    public Mono<ServerResponse> exist(ServerRequest request){
+        var email = request.pathVariable("email");
+        return personUseCase.validateUser(email).flatMap(aBoolean -> ServerResponse
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(fromValue(aBoolean)));
+    }
 
 
 

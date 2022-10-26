@@ -1,7 +1,7 @@
 package co.com.umb.patrones.forum.webapp.domain.usecase;
 
-import co.com.umb.patrones.forum.webapp.model.PersonModel;
-import co.com.umb.patrones.forum.webapp.model.gateway.PersonModelRepository;
+import co.com.umb.patrones.forum.webapp.domain.model.PersonModel;
+import co.com.umb.patrones.forum.webapp.domain.model.gateway.PersonModelRepository;
 import lombok.AllArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -27,5 +27,6 @@ public class PersonUseCase {
     public Mono<PersonModel> create(PersonModel personModel){
         return personModelRepository.create(personModel);
     }
+    public Mono<Boolean> validateUser(String email) {return personModelRepository.existsByEmail(email); }
 
 }

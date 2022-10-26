@@ -1,6 +1,6 @@
-package co.com.umb.patrones.forum.webapp.model.gateway;
+package co.com.umb.patrones.forum.webapp.domain.model.gateway;
 
-import co.com.umb.patrones.forum.webapp.model.PersonModel;
+import co.com.umb.patrones.forum.webapp.domain.model.PersonModel;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -13,4 +13,5 @@ public interface PersonModelRepository {
 
     Mono<PersonModel> findById(int id);
 
+    Mono<Boolean> existsByEmail(String email);
 }

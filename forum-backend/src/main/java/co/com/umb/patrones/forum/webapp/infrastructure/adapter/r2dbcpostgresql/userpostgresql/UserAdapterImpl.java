@@ -1,7 +1,7 @@
 package co.com.umb.patrones.forum.webapp.infrastructure.adapter.r2dbcpostgresql.userpostgresql;
 
-import co.com.umb.patrones.forum.webapp.model.UserModel;
-import co.com.umb.patrones.forum.webapp.model.gateway.UserModelRepository;
+import co.com.umb.patrones.forum.webapp.domain.model.UserModel;
+import co.com.umb.patrones.forum.webapp.domain.model.gateway.UserModelRepository;
 import co.com.umb.patrones.forum.webapp.infrastructure.adapter.r2dbcpostgresql.personpostgresql.Person;
 import co.com.umb.patrones.forum.webapp.infrastructure.adapter.r2dbcpostgresql.personpostgresql.PersonRepository;
 import co.com.umb.patrones.forum.webapp.infrastructure.adapter.r2dbcpostgresql.userpostgresql.helper.PersonMapper;

@@ -1,4 +1,4 @@
-package co.com.umb.patrones.forum.webapp.model;
+package co.com.umb.patrones.forum.webapp.domain.model;
 
 import lombok.*;
 @Data

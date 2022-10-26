@@ -1,7 +1,7 @@
 package co.com.umb.patrones.forum.webapp.infrastructure.adapter.r2dbcpostgresql.personpostgresql;
 
-import co.com.umb.patrones.forum.webapp.model.PersonModel;
-import co.com.umb.patrones.forum.webapp.model.gateway.PersonModelRepository;
+import co.com.umb.patrones.forum.webapp.domain.model.PersonModel;
+import co.com.umb.patrones.forum.webapp.domain.model.gateway.PersonModelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
@@ -50,6 +50,11 @@ public class PersonAdapterImpl implements PersonModelRepository {
                         .city(p.getCity())
                         .profesion(p.getProfesion())
                         .build());
+    }
+
+    @Override
+    public Mono<Boolean> existsByEmail(String email) {
+        return personRepository.existsPersonByEmail(email);
     }
 
     private Person personModelToPerson(PersonModel personModel){
