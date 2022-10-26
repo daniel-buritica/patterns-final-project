@@ -46,6 +46,7 @@ export class AuthService {
       .then((result) => {
         this.SendVerificationMail();
         this.SetUserData(result.user);
+        alert("error");
       })
       .catch((error) => {
         window.alert(error.message);

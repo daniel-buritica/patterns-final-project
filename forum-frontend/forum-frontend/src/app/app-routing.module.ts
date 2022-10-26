@@ -3,23 +3,25 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ResetAccountComponent } from './auth/reset-account/reset-account.component';
+import { CompleteRegisterComponent } from './shared/page/complete-register/complete-register.component';
 import { HomeComponent } from './shared/page/home/home.component';
 
-
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
 
-  {path: 'register', component: RegisterComponent},
+  { path: 'register', component: RegisterComponent },
 
-  {path: 'home', component: HomeComponent},
+  { path: 'home', component: HomeComponent },
 
-  {path: 'restAccount', component: ResetAccountComponent},
+  { path: 'restAccount', component: ResetAccountComponent },
 
-  {path: '**', pathMatch: 'full', redirectTo:'home'}
+  {path: 'complete-registration', component: CompleteRegisterComponent},
+
+  { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

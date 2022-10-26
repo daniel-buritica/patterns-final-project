@@ -19,6 +19,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ResetAccountComponent } from './auth/reset-account/reset-account.component';
 import { HomeComponent } from './shared/page/home/home.component';
+import { HeaderComponent } from './shared/page/header/header.component';
+import { CompleteRegisterComponent } from './shared/page/complete-register/complete-register.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HomeComponent } from './shared/page/home/home.component';
     LoginComponent,
     RegisterComponent,
     ResetAccountComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    CompleteRegisterComponent
   ],
   imports: [
     BrowserModule,
