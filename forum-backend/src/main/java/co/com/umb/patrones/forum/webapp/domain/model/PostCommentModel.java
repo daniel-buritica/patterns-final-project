@@ -9,13 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PostModel {
+public class PostCommentModel {
 
+    private int idPostComment;
     private int idPost;
-    private int idUser;
-    private String bodyPost;
-    private String category;
-    private String datePost;
-
-
+    private String bodyPostComment;
+    private String  datePostComment;
+    private int importance;
 }

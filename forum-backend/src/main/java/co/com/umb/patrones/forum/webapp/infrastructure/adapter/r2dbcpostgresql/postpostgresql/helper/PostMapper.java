@@ -12,7 +12,7 @@ public class PostMapper implements MapperGeneric<Post, PostModel> {
     @Override
     public Post toEntity(PostModel model) {
         return Post.builder()
-                .idPost(model.getIdpost())
+                .idPost(model.getIdPost())
                 .idUser(model.getIdUser())
                 .bodyPost(model.getBodyPost())
                 .category(model.getCategory())
@@ -23,7 +23,7 @@ public class PostMapper implements MapperGeneric<Post, PostModel> {
     @Override
     public PostModel toModel(Post entity) {
         return PostModel.builder()
-                .idpost(entity.getIdPost())
+                .idPost(entity.getIdPost())
                 .idUser(entity.getIdUser())
                 .bodyPost(entity.getCategory())
                 .category(entity.getCategory())
