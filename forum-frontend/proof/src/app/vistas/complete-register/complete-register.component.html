@@ -1,0 +1,49 @@
+<body>
+    <form [formGroup]="complete_register" (ngSubmit)="postCompleteRegister(complete_register.value)">
+        <div class="form">
+            <div class="title">Complete Register</div>
+            <div class="subtitle">Let's create your account!</div>
+            <div class="input-container ic1">
+                <input id="name" class="input" type="text" placeholder=" " formControlName='name'/>
+                <div class="cut"></div>
+                <label for="name" class="placeholder">First name</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="lastname" class="input" type="text" placeholder=" " formControlName='lastname'/>
+                <div class="cut"></div>
+                <label for="lastname" class="placeholder">Last name</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="cardId" class="input" type="text" placeholder=" " formControlName='cardId'/>
+                <div class="cut"></div>
+                <label for="cardId" class="placeholder">Id Card</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="dateBirth" class="input" type="text" placeholder=" " formControlName='dateBirth'/>
+                <div class="cut"></div>
+                <label for="dateBirth" class="placeholder">Date Birth</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="email" class="input" type="text" placeholder=" " formControlName='email'/>
+                <div class="cut"></div>
+                <label for="email" class="placeholder">Email</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="profession" class="input" type="text" placeholder=" " formControlName='profession'/>
+                <div class="cut"></div>
+                <label for="profession" class="placeholder">Profession</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="countries" class="input" type="text" placeholder=" " formControlName='countries'/>
+                <div class="cut"></div>
+                <label for="countries" class="placeholder">Countries</label>
+            </div>
+            <div class="input-container ic2">
+                <input id="city" class="input" type="text" placeholder=" " formControlName='city'/>
+                <div class="cut"></div>
+                <label for="city" class="placeholder">City</label>
+            </div>
+            <button type="text" class="submit">Submit</button>
+        </div>
+    </form>
+</body>
