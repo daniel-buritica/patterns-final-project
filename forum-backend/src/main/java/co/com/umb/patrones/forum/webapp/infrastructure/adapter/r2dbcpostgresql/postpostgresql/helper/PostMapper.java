@@ -25,7 +25,7 @@ public class PostMapper implements MapperGeneric<Post, PostModel> {
         return PostModel.builder()
                 .idPost(entity.getIdPost())
                 .idUser(entity.getIdUser())
-                .bodyPost(entity.getCategory())
+                .bodyPost(entity.getBodyPost())
                 .category(entity.getCategory())
                 .datePost(String.valueOf(LocalDateTime.now()))
                 .build();

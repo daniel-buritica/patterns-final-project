@@ -17,7 +17,7 @@ public class PersonMapper implements MapperGeneric<Person, UserModel>{
                 .dateBirth(model.getPersonModel().getDateBirth())
                 .countries(model.getPersonModel().getCountries())
                 .city(model.getPersonModel().getCity())
-                .profesion(model.getPersonModel().getProfesion())
+                .profession(model.getPersonModel().getProfession())
                 .build();
     }
 

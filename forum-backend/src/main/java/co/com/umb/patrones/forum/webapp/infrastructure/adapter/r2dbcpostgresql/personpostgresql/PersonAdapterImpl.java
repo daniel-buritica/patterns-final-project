@@ -40,22 +40,19 @@ public class PersonAdapterImpl implements PersonModelRepository {
 
     @Override
     public Mono<PersonModel> findById(int id) {
-        return personRepository.findById(id).map(p ->
-                PersonModel.builder()
-                        .id(p.getId())
-                        .name(p.getName())
-                        .lastname(p.getLastname())
-                        .email(p.getEmail())
-                        .dateBirth(p.getDateBirth())
-                        .countries(p.getCountries())
-                        .city(p.getCity())
-                        .profesion(p.getProfesion())
-                        .build());
+        return personRepository.findById(id)
+                .map(p -> personToPersonModel(p));
     }
 
     @Override
     public Mono<Boolean> existsByEmail(String email) {
         return personRepository.existsPersonByEmail(email);
+    }
+
+    @Override
+    public Mono<PersonModel> findByEmail(String email) {
+        return personRepository.findByEmail(email)
+                .map(p -> personToPersonModel(p));
     }
 
     private Person personModelToPerson(PersonModel personModel){
@@ -68,7 +65,7 @@ public class PersonAdapterImpl implements PersonModelRepository {
                 .dateBirth(personModel.getDateBirth())
                 .countries(personModel.getCountries())
                 .city(personModel.getCity())
-                .profesion(personModel.getProfesion())
+                .profession(personModel.getProfession())
                 .build();
     }
     private PersonModel personToPersonModel(Person person){
@@ -81,7 +78,7 @@ public class PersonAdapterImpl implements PersonModelRepository {
                 .dateBirth(person.getDateBirth())
                 .countries(person.getCountries())
                 .city(person.getCity())
-                .profesion(person.getProfesion())
+                .profession(person.getProfession())
                 .build();
     }
 

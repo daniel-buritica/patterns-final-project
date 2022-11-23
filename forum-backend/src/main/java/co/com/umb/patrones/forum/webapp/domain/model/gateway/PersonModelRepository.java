@@ -14,4 +14,6 @@ public interface PersonModelRepository {
     Mono<PersonModel> findById(int id);
 
     Mono<Boolean> existsByEmail(String email);
+
+    Mono<PersonModel> findByEmail(String email);
 }

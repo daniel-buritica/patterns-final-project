@@ -7,4 +7,6 @@ import reactor.core.publisher.Mono;
 @Repository
 public interface PersonRepository extends ReactiveCrudRepository<Person,Integer> {
     Mono<Boolean> existsPersonByEmail(String email);
+
+    Mono<Person> findByEmail(String email);
 }

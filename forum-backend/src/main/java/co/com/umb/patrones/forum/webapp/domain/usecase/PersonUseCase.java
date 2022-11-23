@@ -9,11 +9,15 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class PersonUseCase {
     private PersonModelRepository personModelRepository;
-    //private GenericRepository<PersonModel> personModelRepository;
+
 
 
     public Mono<PersonModel> getById(int id){
         return personModelRepository.findById(id);
+    }
+
+    public Mono<PersonModel> findByEmail(String email){
+        return personModelRepository.findByEmail(email);
     }
     public Flux<PersonModel> getAll(){
         return personModelRepository.getAll();
@@ -28,5 +32,7 @@ public class PersonUseCase {
         return personModelRepository.create(personModel);
     }
     public Mono<Boolean> validateUser(String email) {return personModelRepository.existsByEmail(email); }
+
+
 
 }

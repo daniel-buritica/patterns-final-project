@@ -33,8 +33,8 @@ public class Person {
     private String countries;
     @Column("city")
     private String city;
-    @Column("profesion")
-    private String profesion;
+    @Column("profession")
+    private String profession;
 
 
 }

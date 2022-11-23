@@ -37,6 +37,14 @@ public class PersonHandle {
                         .body(fromValue(p)))
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
+    public Mono<ServerResponse> findByEmail(ServerRequest request){
+        var emailV = request.pathVariable("email");
+        return personUseCase.findByEmail(emailV)
+                .flatMap(p -> ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(fromValue(p)))
+                .switchIfEmpty(ServerResponse.notFound().build());
+    }
 
     public Mono<ServerResponse> findAll(ServerRequest request){
 

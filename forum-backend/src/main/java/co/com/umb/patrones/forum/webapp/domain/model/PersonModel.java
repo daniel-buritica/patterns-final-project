@@ -9,12 +9,12 @@ public class PersonModel {
 
 
     private int id;
-    private int cardId;
     private String name;
     private String lastname;
-    private String email;
+    private int cardId;
     private String dateBirth;
+    private String profession;
+    private String email;
     private String countries;
     private String city;
-    private String profesion;
 }
