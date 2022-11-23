@@ -1,1 +1,18 @@
 <app-header></app-header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-4" *ngFor="let post of listPost">
+            <div class="card bg-light" >
+                <div class="card-header">Danielburitica</div>
+                <div class="card-body">
+                  <h5 class="card-title">{{post.category}}</h5>
+                  <p class="card-text">{{post.bodyPost}}</p>
+                </div>
+              </div>
+        </div>        
+    </div>
+</div>
+
+
+<app-modal></app-modal>

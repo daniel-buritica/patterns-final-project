@@ -14,6 +14,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
+import {HttpClientModule} from '@angular/common/http';
+
 import { environment } from '../environments/environment';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -21,6 +23,8 @@ import { ResetAccountComponent } from './auth/reset-account/reset-account.compon
 import { HomeComponent } from './shared/page/home/home.component';
 import { HeaderComponent } from './shared/page/header/header.component';
 import { CompleteRegisterComponent } from './shared/page/complete-register/complete-register.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { ModalComponent } from './shared/page/modals/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { CompleteRegisterComponent } from './shared/page/complete-register/compl
     ResetAccountComponent,
     HomeComponent,
     HeaderComponent,
-    CompleteRegisterComponent
+    CompleteRegisterComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,9 @@ import { CompleteRegisterComponent } from './shared/page/complete-register/compl
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    HttpClientModule,    
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

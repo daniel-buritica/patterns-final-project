@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from '../../shared/services/auth.service';
 
-
+import {HttpClient} from '@angular/common/http'
 
 
 @Component({
@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.isLoggedIn
-      ? this.authService.router.navigate(['../shared/pages/home'])
-      : '';
+    // this.authService.isLoggedIn
+    //   ? this.authService.router.navigate(['../shared/pages/home'])
+    //   : '';
   }
 }

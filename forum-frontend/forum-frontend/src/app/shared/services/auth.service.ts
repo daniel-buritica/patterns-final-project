@@ -5,16 +5,25 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 
+import {CustomerService} from '../../shared/services/customer.service';
+import {PersonResponseI} from '../../shared/models/person-Response.interface';
+import { fromEvent, throttleTime, map, scan, filter } from 'rxjs';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+
+  public personData:PersonResponseI | undefined;
+
   userData: any;
   constructor(
     public store: AngularFirestore,
     public authentication: AngularFireAuth,
-    public router: Router
+    public router: Router,
+    private apiC:CustomerService
   ) {
     this.authentication.authState.subscribe((user) => {
       if (user) {
@@ -22,6 +31,7 @@ export class AuthService {
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
       } else {
+        localStorage.setItem('userI', 'null');
         localStorage.setItem('user', 'null');
         JSON.parse(localStorage.getItem('user')!);
       }
@@ -82,16 +92,29 @@ export class AuthService {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((result: any) => {
       if (result) {
         this.SetUserData(result.user);
-        this.router.navigate(['../shared/pages/home']);
+        // this.router.navigate(['../shared/pages/home']);
+        console.log("así si esta llamado 1");
       }
     });
   }
   AuthLogin(provider: any) {
+    var exitsEmail:any;
     return this.authentication
       .signInWithPopup(provider)
       .then((result) => {
-        this.router.navigate(['../pages/home']);
+        // this.router.navigate(['../pages/home']);
         this.SetUserData(result.user);
+        var emailLocalStorage = JSON.parse(localStorage.getItem('user')!).email;
+        this.apiC.validateEmailDataBase(emailLocalStorage)
+        .pipe(map((res: any) => {
+          if(res){
+            this.router.navigate(['home']);                        
+          }else{            
+            this.router.navigate(['complete-registration']);      
+          }
+        })).subscribe(oo => console.log(oo));                             
+        
+        
       })
       .catch((error) => {
         window.alert(error);
